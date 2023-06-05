@@ -23,6 +23,8 @@ public class WithdrawService {
         BigDecimal updatedAccountBalance = accountBalance.subtract(value);
         this.account.setBalance(updatedAccountBalance);
 
+        RegisterOperation.handle("Saque", value);
+
         return updatedAccountBalance;
     }
 }

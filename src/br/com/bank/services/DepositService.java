@@ -5,12 +5,10 @@ import java.math.BigDecimal;
 public class DepositService {
     private Account sourceAccount;
     private Account destinationAccount;
-
     public DepositService(Account sourceAccount, Account destinationAccount) {
         this.sourceAccount = sourceAccount;
         this.destinationAccount = destinationAccount;
     }
-
     public void handle(BigDecimal value) throws Exception {
         BigDecimal sourceAccountBalance = sourceAccount.getBalance();
 
@@ -29,6 +27,8 @@ public class DepositService {
             synchronized (destinationAccount) {
                 destinationAccount.setBalance(updatedDestinationAccountBalance);
                 sourceAccount.setBalance(updatedSourceAccountBalance);
+
+                RegisterOperation.handle("Depósito", value);
             }
         }
     }
