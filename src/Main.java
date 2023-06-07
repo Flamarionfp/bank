@@ -3,6 +3,8 @@ import br.com.bank.services.WithdrawService;
 import br.com.bank.services.DepositService;
 import br.com.bank.helpers.FormatBrazilianCurrency;
 import java.math.BigDecimal;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeParseException;
 
 public class Main {
     public static final int NUMBER_OF_OPERATIONS = 6;
@@ -14,10 +16,37 @@ public class Main {
 
             BigDecimal initialUserBalance = new BigDecimal(100);
             Account userAccount = new Account(initialUserBalance);
-            BigDecimal operationValue;
+            BigDecimal operationValue = BigDecimal.ZERO;
 
-            for (int i = 0; i < NUMBER_OF_OPERATIONS; i++){
+            for (int i = 0; i < NUMBER_OF_OPERATIONS; i++) {
                 int selectedOption = Menu.getSelectedOption();
+
+                if (selectedOption != 1) {
+                    operationValue = Menu.getValue();
+                }
+
+                if (selectedOption == 2 || selectedOption == 3) {
+                    LocalDateTime operationDate = null;
+                    boolean validDate = false;
+
+                    while (!validDate) {
+                        try {
+                            operationDate = Menu.getOperationDate();
+                            LocalDateTime currentTime = LocalDateTime.now();
+
+                            if (currentTime.isAfter(operationDate)) {
+                                System.out.println("A data de operação informada já passou");
+                            } else {
+                                validDate = true;
+                                while (currentTime.isBefore(operationDate)) {
+                                    currentTime = LocalDateTime.now();
+                                }
+                            }
+                        } catch (DateTimeParseException e) {
+                            System.out.println("Data e horário inválidos. Tente novamente.");
+                        }
+                    }
+                }
 
                 switch (selectedOption) {
                     case 1: {
@@ -26,15 +55,14 @@ public class Main {
                     }
                     case 2: {
                         WithdrawService withDrawService = new WithdrawService(userAccount);
-                        operationValue = Menu.getValue();
                         withDrawService.handle(operationValue);
                         break;
                     }
-                    default: {
-                        Account destinationAccount = new Account(BigDecimal.ZERO); // criado de maneira fixa apenas para seguir o contrato da implementação, como é apenas uma simulação
+                    case 3: {
+                        Account destinationAccount = new Account(BigDecimal.ZERO);
                         DepositService depositService = new DepositService(userAccount, destinationAccount);
-                        operationValue = Menu.getValue();
                         depositService.handle(operationValue);
+                        break;
                     }
                 }
             }

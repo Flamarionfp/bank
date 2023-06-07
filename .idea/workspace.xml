@@ -5,14 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="50170ffb-59b2-4230-b585-7e057156c295" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/Main.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Menu.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/br/com/bank/helpers/FormatBrazilianCurrency.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/br/com/bank/services/DepositService.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/br/com/bank/services/RegisterOperation.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/br/com/bank/services/WithdrawService.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/registro_operacoes.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/registro_operacoes.txt" beforeDir="false" afterPath="$PROJECT_DIR$/registro_operacoes.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Menu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Menu.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/br/com/bank/services/RegisterOperation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/br/com/bank/services/RegisterOperation.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

@@ -17,7 +17,7 @@ public class RegisterOperation {
         try {
             fileLock.lock(); // Bloqueia para as outras instâncias antes de escrever no arquivo
             BufferedWriter writer = new BufferedWriter(new FileWriter(filePath, true));
-            String timestamp = LocalDateTime.now().format(DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm:ss"));
+            String timestamp = LocalDateTime.now().format(DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm:ss")); // estou usando o timestamp em vez da data informada pelo usuário para registrar exatamente o horário de gravação no arquivo
             String data = timestamp + " - " + operationLabel + ": " + value.toString();
             writer.write(data);
             writer.newLine();
