@@ -5,7 +5,7 @@ import br.com.bank.helpers.FormatBrazilianCurrency;
 import java.math.BigDecimal;
 
 public class Main {
-    public static final int NUMBER_OF_OPERATIONS = 2;
+    public static final int NUMBER_OF_OPERATIONS = 6;
 
     public static void main(String[] args) {
         try {
