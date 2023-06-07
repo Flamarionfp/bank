@@ -8,6 +8,9 @@ import java.time.format.DateTimeParseException;
 
 public class Main {
     public static final int NUMBER_OF_OPERATIONS = 6;
+    private static final int OPTION_BALANCE = 1;
+    private static final int OPTION_WITHDRAW = 2;
+    private static final int OPTION_DEPOSIT = 3;
 
     public static void main(String[] args) {
         try {
@@ -21,15 +24,13 @@ public class Main {
             for (int i = 0; i < NUMBER_OF_OPERATIONS; i++) {
                 int selectedOption = Menu.getSelectedOption();
 
-                if (selectedOption != 1) {
-                    operationValue = Menu.getValue();
-                }
-
-                if (selectedOption == 2 || selectedOption == 3) {
+                if (selectedOption == OPTION_WITHDRAW || selectedOption == OPTION_DEPOSIT) {
                     LocalDateTime operationDate = null;
-                    boolean validDate = false;
+                    boolean isValidDate = false;
 
-                    while (!validDate) {
+                    operationValue = Menu.getValue();
+
+                    while (!isValidDate) {
                         try {
                             operationDate = Menu.getOperationDate();
                             LocalDateTime currentTime = LocalDateTime.now();
@@ -37,7 +38,7 @@ public class Main {
                             if (currentTime.isAfter(operationDate)) {
                                 System.out.println("A data de operação informada já passou");
                             } else {
-                                validDate = true;
+                                isValidDate = true;
                                 while (currentTime.isBefore(operationDate)) {
                                     currentTime = LocalDateTime.now();
                                 }
@@ -49,16 +50,16 @@ public class Main {
                 }
 
                 switch (selectedOption) {
-                    case 1: {
+                    case OPTION_BALANCE: {
                         System.out.println("Seu saldo é de " + FormatBrazilianCurrency.format(userAccount.getBalance()));
                         break;
                     }
-                    case 2: {
+                    case OPTION_WITHDRAW: {
                         WithdrawService withDrawService = new WithdrawService(userAccount);
                         withDrawService.handle(operationValue);
                         break;
                     }
-                    case 3: {
+                    case OPTION_DEPOSIT: {
                         Account destinationAccount = new Account(BigDecimal.ZERO);
                         DepositService depositService = new DepositService(userAccount, destinationAccount);
                         depositService.handle(operationValue);
