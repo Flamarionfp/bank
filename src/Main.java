@@ -1,28 +1,43 @@
 import br.com.bank.entities.Account;
-import br.com.bank.services.DepositService;
 import br.com.bank.services.WithdrawService;
-
+import br.com.bank.services.DepositService;
+import br.com.bank.helpers.FormatBrazilianCurrency;
 import java.math.BigDecimal;
 
 public class Main {
+    public static final int NUMBER_OF_OPERATIONS = 2;
+
     public static void main(String[] args) {
-        // Apenas para testes, não representa o fluxo do programa
-
         try {
-            Account sourceAccount = new Account(new BigDecimal(100));
-            Account destinationAccount = new Account(BigDecimal.ZERO);
+            System.out.println("Banco Internacional");
+            System.out.println("-------------------");
 
-            DepositService depositService = new DepositService(sourceAccount, destinationAccount);
-            depositService.handle(new BigDecimal(40));
+            BigDecimal initialUserBalance = new BigDecimal(100);
+            Account userAccount = new Account(initialUserBalance);
+            BigDecimal operationValue;
 
-            WithdrawService withdrawService = new WithdrawService(sourceAccount);
+            for (int i = 0; i < NUMBER_OF_OPERATIONS; i++){
+                int selectedOption = Menu.getSelectedOption();
 
-            System.out.println("SourceAccount Account " + sourceAccount.getBalance());
-            System.out.println("Destination Account " + destinationAccount.getBalance());
-
-            withdrawService.handle(new BigDecimal(10));
-            System.out.println("Source Account " + sourceAccount.getBalance());
-
+                switch (selectedOption) {
+                    case 1: {
+                        System.out.println("Seu saldo é de " + FormatBrazilianCurrency.format(userAccount.getBalance()));
+                        break;
+                    }
+                    case 2: {
+                        WithdrawService withDrawService = new WithdrawService(userAccount);
+                        operationValue = Menu.getValue();
+                        withDrawService.handle(operationValue);
+                        break;
+                    }
+                    default: {
+                        Account destinationAccount = new Account(BigDecimal.ZERO); // criado de maneira fixa apenas para seguir o contrato da implementação, como é apenas uma simulação
+                        DepositService depositService = new DepositService(userAccount, destinationAccount);
+                        operationValue = Menu.getValue();
+                        depositService.handle(operationValue);
+                    }
+                }
+            }
         } catch (Exception exception) {
             System.out.print(exception.getMessage());
         }

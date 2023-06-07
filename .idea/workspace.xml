@@ -5,12 +5,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="50170ffb-59b2-4230-b585-7e057156c295" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/registro_operacoes.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/br/com/bank/services/RegisterOperation.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Menu.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/br/com/bank/entities/Account.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/br/com/bank/helpers/FormatBrazilianCurrency.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/registro_operacoes.txt" beforeDir="false" afterPath="$PROJECT_DIR$/registro_operacoes.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/br/com/bank/services/DepositService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/br/com/bank/services/DepositService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/br/com/bank/services/WithdrawService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/br/com/bank/services/WithdrawService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/br/com/bank/services/RegisterOperation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/br/com/bank/services/RegisterOperation.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -35,13 +36,13 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ASKED_ADD_EXTERNAL_FILES": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "onboarding.tips.debug.path": "C:/Users/flama/dev/courses/faccat/linguagens-programacao/bank/src/Main.java"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;onboarding.tips.debug.path&quot;: &quot;C:/Users/flama/dev/courses/faccat/linguagens-programacao/bank/src/Main.java&quot;
   }
-}]]></component>
+}</component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
